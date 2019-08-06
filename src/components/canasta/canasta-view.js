@@ -2,19 +2,19 @@ import React from 'react';
 
 import './canasta.sass';
 
-function CanastaView() {
+function CanastaView({teams}) {
   return <div className="canasta">
     <div className="row header">
       <h1 className="title">Canasta</h1>
     </div>
     <div className="row">
-      <div className="team-name">Test 1</div>
+      <div className="team-name">{teams[0]}</div>
       <div className="spacer"/>
       <div className="total-score">0</div>
       <div className="vs-sign">VS</div>
       <div className="total-score">0</div>
       <div className="spacer"/>
-      <div className="team-name">Test 2</div>
+      <div className="team-name">{teams[1]}</div>
     </div>
     <div className="row">
       <button className="button">Perfect Deal</button>
