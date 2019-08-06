@@ -5,7 +5,10 @@
     @apply w-full mb-2 flex
 
     &.header
-      @apply justify-center border-b-2
+      @apply justify-center border-b-2 items-start
+
+    &.centered
+      @apply items-center
 
     .spacer
       @apply flex-grow
@@ -32,16 +35,16 @@
     @apply text-center text-xl mx-2 flex-shrink-0
 
   .button
-    @apply text-white bg-blue-500 py-2 px-4 border border-blue-500
+    @apply text-white bg-blue-500 p-2 border border-blue-500
 
     &:hover
       @apply bg-blue-100 text-blue-500
 
     &.left
-      @apply rounded-r
+      @apply rounded-r py-2 pr-2 pl-1
 
     &.right
-      @apply rounded-l
+      @apply rounded-l py-2 pl-2 pr-1
 
     &.middle
       @apply rounded
