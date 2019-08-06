@@ -1,14 +1,9 @@
 class Stat {
-  constructor(score, lowest, greatest, value = undefined) {
+  constructor(score, lowest, greatest, value) {
     this.minimum = lowest;
     this.maximum = greatest;
     this.score_function = score;
-
-    if (value === undefined) {
-      this.value = lowest;
-    } else {
-      this.set(value);
-    }
+    this.set(value);
   }
 
   increment() {
