@@ -15,7 +15,13 @@ function CanastaContainer({teams}) {
     setRounds(new_rounds);
   };
 
-  return <CanastaView teams={teams} scores={scores} rounds={rounds} action={action}/>;
+  const add_round = () => {
+    const new_rounds = rounds.map((round) => new Round(round));
+    new_rounds.push(new Round());
+    setRounds(new_rounds);
+  };
+
+  return <CanastaView teams={teams} scores={scores} rounds={rounds} action={action} finish_round={add_round}/>;
 }
 
 export default CanastaContainer;

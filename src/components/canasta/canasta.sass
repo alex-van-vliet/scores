@@ -1,5 +1,5 @@
 .canasta
-  @apply bg-blue-100 h-full
+  @apply bg-blue-100 h-full overflow-auto
 
   .row
     @apply w-full mb-2 flex
@@ -37,8 +37,11 @@
     &:hover
       @apply bg-blue-100 text-blue-500
 
-    &:first-child
+    &.left
       @apply rounded-r
 
-    &:last-child
+    &.right
       @apply rounded-l
+
+    &.middle
+      @apply rounded
