@@ -8,6 +8,9 @@ it('renders without crashing', () => {
   ReactDOM.render(<HeaderView teams={[
     'Team 1',
     'Team 2'
+  ]} scores={[
+      0,
+      0
   ]}/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
@@ -17,8 +20,25 @@ it('displays the team\'s name', () => {
       <HeaderView teams={[
         'Team 1\'s name is amazing',
         'Test'
+      ]} scores={[
+        0,
+        0
       ]}/>
   );
   expect(component.contains('Team 1\'s name is amazing')).toBe(true);
   expect(component.contains('Test')).toBe(true);
+});
+
+it('displays the team\'s score', () => {
+  const component = shallow(
+      <HeaderView teams={[
+        'Team 1',
+        'Team 2'
+      ]} scores={[
+        30,
+        111
+      ]}/>
+  );
+  expect(component.contains(30)).toBe(true);
+  expect(component.contains(111)).toBe(true);
 });

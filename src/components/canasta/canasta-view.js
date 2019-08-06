@@ -3,12 +3,12 @@ import React from 'react';
 import './canasta.sass';
 import Header from './header';
 
-function CanastaView({teams}) {
+function CanastaView({teams, scores}) {
   return <div className="canasta">
     <div className="row header">
       <h1 className="title">Canasta</h1>
     </div>
-    <Header teams={teams}/>
+    <Header teams={teams} scores={scores}/>
     <div className="row">
       <button className="button">Perfect Deal</button>
       <div className="spacer"/>
