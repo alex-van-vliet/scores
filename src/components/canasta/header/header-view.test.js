@@ -5,10 +5,10 @@ import HeaderView from "./header-view";
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<HeaderView teams={[
+  ReactDOM.render(<HeaderView titles={[
     'Team 1',
     'Team 2'
-  ]} scores={[
+  ]} values={[
       0,
       0
   ]}/>, div);
@@ -17,10 +17,10 @@ it('renders without crashing', () => {
 
 it('displays the team\'s name', () => {
   const component = shallow(
-      <HeaderView teams={[
+      <HeaderView titles={[
         'Team 1\'s name is amazing',
         'Test'
-      ]} scores={[
+      ]} values={[
         0,
         0
       ]}/>
@@ -31,10 +31,10 @@ it('displays the team\'s name', () => {
 
 it('displays the team\'s score', () => {
   const component = shallow(
-      <HeaderView teams={[
+      <HeaderView titles={[
         'Team 1',
         'Team 2'
-      ]} scores={[
+      ]} values={[
         30,
         111
       ]}/>

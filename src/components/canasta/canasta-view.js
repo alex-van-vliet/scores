@@ -10,7 +10,7 @@ function CanastaView({teams, scores}) {
     <div className="row header">
       <h1 className="title">Canasta</h1>
     </div>
-    <Header teams={teams} scores={scores}/>
+    <Header titles={teams} values={scores}/>
     <Row title="Perfect Deal" values={[0, 0]}/>
     <Row title="Red Three" values={[0, 0]}/>
     <Row title="Mixed Canasta" values={[0, 0]}/>
