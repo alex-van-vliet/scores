@@ -3,6 +3,7 @@ import React from 'react';
 import './canasta.sass';
 import Header from './header';
 import Row from './row';
+import Footer from './footer';
 
 function CanastaView({teams, scores}) {
   return <div className="canasta">
@@ -15,13 +16,7 @@ function CanastaView({teams, scores}) {
     <Row title="Mixed Canasta" values={[0, 0]}/>
     <Row title="Natural Canasta" values={[0, 0]}/>
     <Row title="Go Out"/>
-    <div className="row">
-      <div className="spacer"/>
-      <div className="total-score">0</div>
-      <div className="vs-sign">- 1 -</div>
-      <div className="total-score">0</div>
-      <div className="spacer"/>
-    </div>
+    <Footer spacer="- 1 -" values={[0, 0]}/>
   </div>;
 }
 
