@@ -9,8 +9,8 @@ class Round {
       ];
     } else {
       this.teams = [
-        new StatList(this.teams[0]),
-        new StatList(this.teams[1]),
+        new StatList(round.teams[0]),
+        new StatList(round.teams[1]),
       ];
     }
   }

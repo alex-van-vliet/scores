@@ -1,1 +1,1 @@
-export {default} from './canasta-view';
+export {default} from './canasta-container';
