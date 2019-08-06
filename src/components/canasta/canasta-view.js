@@ -2,6 +2,7 @@ import React from 'react';
 
 import './canasta.sass';
 import Header from './header';
+import Row from './row';
 
 function CanastaView({teams, scores}) {
   return <div className="canasta">
@@ -9,49 +10,11 @@ function CanastaView({teams, scores}) {
       <h1 className="title">Canasta</h1>
     </div>
     <Header teams={teams} scores={scores}/>
-    <div className="row">
-      <button className="button">Perfect Deal</button>
-      <div className="spacer"/>
-      <div>0</div>
-      <div className="spacer mid"/>
-      <div>0</div>
-      <div className="spacer"/>
-      <button className="button">Perfect Deal</button>
-    </div>
-    <div className="row">
-      <button className="button">Red Three</button>
-      <div className="spacer"/>
-      <div>0</div>
-      <div className="spacer mid"/>
-      <div>0</div>
-      <div className="spacer"/>
-      <button className="button">Red Three</button>
-    </div>
-    <div className="row">
-      <button className="button">Mixed Canasta</button>
-      <div className="spacer"/>
-      <div>0</div>
-      <div className="spacer mid"/>
-      <div>0</div>
-      <div className="spacer"/>
-      <button className="button">Mixed Canasta</button>
-    </div>
-    <div className="row">
-      <button className="button">Natural Canasta</button>
-      <div className="spacer"/>
-      <div>0</div>
-      <div className="spacer mid"/>
-      <div>0</div>
-      <div className="spacer"/>
-      <button className="button">Natural Canasta</button>
-    </div>
-    <div className="row">
-      <button className="button">Go Out</button>
-      <div className="spacer"/>
-      <div className="spacer mid"/>
-      <div className="spacer"/>
-      <button className="button">Go Out</button>
-    </div>
+    <Row title="Perfect Deal" values={[0, 0]}/>
+    <Row title="Red Three" values={[0, 0]}/>
+    <Row title="Mixed Canasta" values={[0, 0]}/>
+    <Row title="Natural Canasta" values={[0, 0]}/>
+    <Row title="Go Out"/>
     <div className="row">
       <div className="spacer"/>
       <div className="total-score">0</div>
