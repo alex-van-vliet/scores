@@ -3,13 +3,7 @@ import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
 import RowView from "./row-view";
 
-it('renders without crashing without values', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<RowView title="Title"/>, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
-
-it('renders without crashing with values', () => {
+it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<RowView title="Title" values={[0, 0]}/>, div);
   ReactDOM.unmountComponentAtNode(div);
@@ -17,7 +11,7 @@ it('renders without crashing with values', () => {
 
 it('displays the title', () => {
   const component = shallow(
-      <RowView title='Amazing title'/>
+      <RowView title='Amazing title' values={[0, 0]}/>
   );
   expect(component.contains('Amazing title')).toBe(true);
 });
