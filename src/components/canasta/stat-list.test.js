@@ -1,6 +1,17 @@
 import Stat from './stat';
 import StatList from './stat-list';
 
+it('gets the total score', () => {
+  const list = new StatList();
+  list.perfect_deal.set(1); // 100
+  list.red_threes.set(4); // 800
+  list.mixed_canastas.set(2); // 600
+  list.natural_canastas.set(1); // 500
+  list.go_out.set(1); // 100
+  list.score.set(123); // 123
+  expect(list.get()).toBe(100 + 800 + 600 + 500 + 100 + 123);
+});
+
 it('has a perfect deal field', () => {
   const list = new StatList();
   expect(list.perfect_deal).toBeInstanceOf(Stat);

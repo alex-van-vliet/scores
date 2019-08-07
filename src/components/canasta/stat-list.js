@@ -25,7 +25,8 @@ class StatList {
         + this.red_threes.get()
         + this.mixed_canastas.get()
         + this.natural_canastas.get()
-        + this.go_out.get();
+        + this.go_out.get()
+        + this.score.get();
   }
 }
 
