@@ -74,3 +74,19 @@ it('has a score field', () => {
     expect(list.score.get()).toBe(value);
   });
 });
+
+it('has an exact copy', () => {
+  const list = new StatList();
+  const copy = new StatList(list);
+  const converter = (list) => {
+    if (list instanceof Object) {
+      const out = {};
+      for (const property in list) {
+        out[property] = converter(list[property]);
+      }
+      return out;
+    }
+    return list;
+  };
+  expect(converter(copy)).toMatchObject(converter(list));
+});
