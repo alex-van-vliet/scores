@@ -5,7 +5,7 @@ import Header from './header';
 import Row from './row';
 import Footer from './footer';
 
-function CanastaView({teams, scores, rounds, action, finish_round}) {
+function CanastaView({teams, scores, rounds, action, finish_round, reversed, toggle_reversed}) {
   const rows = [
     ['Perfect Deal', 'perfect_deal'],
     ['Red Three', 'red_threes'],
@@ -27,10 +27,17 @@ function CanastaView({teams, scores, rounds, action, finish_round}) {
              values={[last_round.teams[0][fn].get(), last_round.teams[1][fn].get()]}
              key={i}
              action={(team) => action(team, fn)} />)}
-    <div className="row justify-center">
-      <button className="button middle" onClick={finish_round}>
-        Finish Round
-      </button>
+    <div className="row">
+      <div className="w-1/2 mr-2 text-right">
+        <button className="button middle" onClick={finish_round}>
+          Finish Round
+        </button>
+      </div>
+      <div className="w-1/2 ml-2 text-left">
+        <button className="button danger middle" onClick={toggle_reversed}>
+          {reversed ? 'Reversed' : 'Normal'}
+        </button>
+      </div>
     </div>
     {rounds.map((round, i) =>
         <Footer title={'- ' + (i + 1) + ' -'}
