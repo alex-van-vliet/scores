@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import CanastaView from './canasta-view';
 import Round from './round';
+import swal from 'sweetalert2';
 
 function CanastaContainer({teams}) {
   const [rounds, setRounds] = useState([new Round()]);
@@ -11,12 +12,29 @@ function CanastaContainer({teams}) {
   const scores = rounds.reduce(reducer, [0, 0]);
 
   const action = (team, fn) => {
-    const new_rounds = rounds.map((round) => new Round(round));
-    if (reversed)
-      new_rounds[new_rounds.length - 1].teams[team][fn].decrement();
-    else
-      new_rounds[new_rounds.length - 1].teams[team][fn].increment();
-    setRounds(new_rounds);
+    if (fn === 'score') {
+      swal.fire({
+        title: 'Enter your score',
+        input: 'text',
+        inputValue: '',
+        showCancelButton: true,
+        target: '.canasta',
+        inputValidator: (value) => {
+          if (value !== '' && !isNaN(value)) {
+            const new_rounds = rounds.map((round) => new Round(round));
+            new_rounds[new_rounds.length - 1].teams[team][fn].set(parseInt(value));
+            setRounds(new_rounds);
+          }
+        }
+      });
+    } else {
+      const new_rounds = rounds.map((round) => new Round(round));
+      if (reversed)
+        new_rounds[new_rounds.length - 1].teams[team][fn].decrement();
+      else
+        new_rounds[new_rounds.length - 1].teams[team][fn].increment();
+      setRounds(new_rounds);
+    }
   };
 
   const add_round = () => {
