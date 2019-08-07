@@ -4,7 +4,7 @@ script:
 - yarn build
 - yarn test
 before_deploy:
-- rvm 1.9.3 do gem install aws-sdk -v 2.1.36
+- rvm $(travis_internal_ruby) do gem install aws-sdk -v 2.1.36
 deploy:
   provider: s3
   access_key_id: AKIA2YC6WUAYPF2QNS4N
