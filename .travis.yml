@@ -15,5 +15,3 @@ deploy:
   acl: public_read
   on:
     repo: alex-van-vliet/scores
-  edge:
-    branch: s3-backward-compat
