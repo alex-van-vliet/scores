@@ -1,9 +1,9 @@
 import React from "react";
 
-function RowView({title, values, action=(team) => {}}) {
+function RowView({title, values, action=(team) => {}, danger=false}) {
   return <div className="row">
     <div className="spacer row centered">
-      <button className="button left" onClick={() => action(0)}>{title}</button>
+      <button className={'button left' + (danger ? ' danger' : '')} onClick={() => action(0)}>{title}</button>
       <div className="spacer"/>
       <div>{values[0]}</div>
     </div>
@@ -11,7 +11,7 @@ function RowView({title, values, action=(team) => {}}) {
     <div className="spacer row centered">
       <div>{values[1]}</div>
       <div className="spacer"/>
-      <button className="button right" onClick={() => action(1)}>{title}</button>
+      <button className={'button right' + (danger ? ' danger' : '')} onClick={() => action(1)}>{title}</button>
     </div>
   </div>;
 }
