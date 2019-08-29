@@ -5,7 +5,7 @@ import Header from './header';
 import Row from './row';
 import Footer from './footer';
 
-function CanastaView({teams, scores, rounds, action, finish_round, reversed, toggle_reversed}) {
+function CanastaView({teams, scores, rounds, action, finish_round, reversed, toggle_reversed, reset}) {
   const rows = [
     ['Perfect Deal', 'perfect_deal'],
     ['Red Three', 'red_threes'],
@@ -29,14 +29,19 @@ function CanastaView({teams, scores, rounds, action, finish_round, reversed, tog
              action={(team) => action(team, fn)}
              danger={reversed} />)}
     <div className="row">
-      <div className="w-1/2 mr-2 text-right">
+      <div className="w-1/3 mr-2 text-right">
         <button className="button middle" onClick={finish_round}>
           Finish Round
         </button>
       </div>
-      <div className="w-1/2 ml-2 text-left">
+      <div className="w-1/3 ml-2 mr-2 text-center">
         <button className={'button middle' + (reversed ? '' : ' danger')} onClick={toggle_reversed}>
           {reversed ? 'Reversed' : 'Normal'}
+        </button>
+      </div>
+      <div className="w-1/3 ml-2 text-left">
+        <button className="button middle danger" onClick={reset}>
+          Reset game
         </button>
       </div>
     </div>

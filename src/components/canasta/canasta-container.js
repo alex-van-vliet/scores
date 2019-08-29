@@ -78,8 +78,22 @@ function CanastaContainer({teams}) {
     setReversed(!reversed);
   };
 
+  const reset = () => {
+    swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, reset the game!'
+    }).then((result) => {
+      if (result.value) {
+        setRounds([new Round()]);
+      }
+    });
+  };
+
   return <CanastaView teams={teams} scores={scores} rounds={rounds} action={action} finish_round={add_round}
-                      reversed={reversed} toggle_reversed={toggle_reversed}/>;
+                      reversed={reversed} toggle_reversed={toggle_reversed} reset={reset}/>;
 }
 
 export default CanastaContainer;
