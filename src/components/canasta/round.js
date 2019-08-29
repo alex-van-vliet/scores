@@ -21,6 +21,10 @@ class Round {
     } else if (out_teams.length > 1) {
       throw new Error('More than one team went out.');
     }
+    let red_threes = this.teams.reduce((acc, team) => acc + Math.abs(team.red_threes.get()), 0);
+    if (red_threes > 4) {
+      throw new Error('More than four red threes were given.');
+    }
   }
 }
 
