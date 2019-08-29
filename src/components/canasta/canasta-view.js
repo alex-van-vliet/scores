@@ -30,13 +30,13 @@ function CanastaView({teams, scores, rounds, action, finish_round, reversed, tog
              danger={reversed} />)}
     <div className="row">
       <div className="w-1/3 mr-2 text-right">
-        <button className="button middle" onClick={finish_round}>
-          Finish Round
+        <button className={'button middle' + (reversed ? '' : ' danger')} onClick={toggle_reversed}>
+          {reversed ? 'Reversed' : 'Normal'}
         </button>
       </div>
       <div className="w-1/3 ml-2 mr-2 text-center">
-        <button className={'button middle' + (reversed ? '' : ' danger')} onClick={toggle_reversed}>
-          {reversed ? 'Reversed' : 'Normal'}
+        <button className="button middle" onClick={finish_round}>
+          Finish Round
         </button>
       </div>
       <div className="w-1/3 ml-2 text-left">
