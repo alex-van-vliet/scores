@@ -2,10 +2,27 @@ import React, {useState} from 'react';
 import CanastaView from './canasta-view';
 import Round from './round';
 import swal from 'sweetalert2';
+import serialize from 'serialize-javascript';
 
 function CanastaContainer({teams}) {
-  const [rounds, setRounds] = useState([new Round()]);
+  const [rounds, roundsSetter] = useState(() => {
+    if (window && window.localStorage) {
+      const rounds = window.localStorage.getItem('canasta.rounds');
+      if (rounds) {
+        // eslint-disable-next-line no-eval
+        return eval('(' + rounds + ')').map((e) => new Round(e));
+      }
+    }
+    return [new Round()];
+  });
   const [reversed, setReversed] = useState(false);
+
+  const setRounds = function (value) {
+    roundsSetter(value);
+    if (window && window.localStorage) {
+      window.localStorage.setItem('canasta.rounds', serialize(value));
+    }
+  };
 
   const reducer = ([acc_first, acc_second], round) =>
       [acc_first + round.teams[0].compute(), acc_second + round.teams[1].compute()];
