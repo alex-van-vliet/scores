@@ -46,7 +46,7 @@ function CanastaContainer({teams}) {
           title: 'Error!',
           text: e.message,
           type: 'error',
-          confirmButtonText: 'Cool',
+          confirmButtonText: 'Ok',
           target: '.canasta'
         });
         return;
