@@ -8,7 +8,7 @@ function CanastaContainer({teams}) {
   const [reversed, setReversed] = useState(false);
 
   const reducer = ([acc_first, acc_second], round) =>
-      [acc_first + round.teams[0].get(), acc_second + round.teams[1].get()];
+      [acc_first + round.teams[0].compute(), acc_second + round.teams[1].compute()];
   const scores = rounds.reduce(reducer, [0, 0]);
 
   const action = (team, fn) => {

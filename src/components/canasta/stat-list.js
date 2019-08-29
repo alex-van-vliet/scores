@@ -20,13 +20,13 @@ class StatList {
     }
   }
 
-  get() {
-    return this.perfect_deal.get()
-        + this.red_threes.get()
-        + this.mixed_canastas.get()
-        + this.natural_canastas.get()
-        + this.go_out.get()
-        + this.score.get();
+  compute() {
+    return this.perfect_deal.compute()
+        + this.red_threes.compute()
+        + this.mixed_canastas.compute()
+        + this.natural_canastas.compute()
+        + this.go_out.compute()
+        + this.score.compute();
   }
 }
 

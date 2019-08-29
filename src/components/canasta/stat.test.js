@@ -21,7 +21,7 @@ it('can subtract one to its value', () => {
 
 it('applies the score function', () => {
   const stat = new Stat(x => -42, 0, 4, 0);
-  expect(stat.get()).toBe(-42);
+  expect(stat.compute()).toBe(-42);
 });
 
 it('can set its value', () => {

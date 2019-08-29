@@ -9,7 +9,7 @@ it('gets the total score', () => {
   list.natural_canastas.set(1); // 500
   list.go_out.set(1); // 100
   list.score.set(123); // 123
-  expect(list.get()).toBe(100 + 800 + 600 + 500 + 100 + 123);
+  expect(list.compute()).toBe(100 + 800 + 600 + 500 + 100 + 123);
 });
 
 it('has a perfect deal field', () => {
@@ -20,7 +20,7 @@ it('has a perfect deal field', () => {
   expect(list.perfect_deal.maximum).toBe(1);
   [[0, 0], [1, 100]].forEach(([value, expected]) => {
     list.perfect_deal.set(value);
-    expect(list.perfect_deal.get()).toBe(expected);
+    expect(list.perfect_deal.compute()).toBe(expected);
   });
 });
 
@@ -32,9 +32,9 @@ it('has a red threes field', () => {
   expect(list.red_threes.maximum).toBe(4);
   [[0, 0], [1, 100], [2, 200], [3, 300], [4, 800]].forEach(([value, expected]) => {
     list.red_threes.set(value);
-    expect(list.red_threes.get()).toBe(expected);
+    expect(list.red_threes.compute()).toBe(expected);
     list.red_threes.set(-value);
-    expect(list.red_threes.get()).toBe(-expected);
+    expect(list.red_threes.compute()).toBe(-expected);
   });
 });
 
@@ -46,7 +46,7 @@ it('has a mixed canastas field', () => {
   expect(list.mixed_canastas.maximum).toBe(Number.MAX_SAFE_INTEGER);
   [[0, 0], [1, 300], [4, 4 * 300], [50, 50 * 300]].forEach(([value, expected]) => {
     list.mixed_canastas.set(value);
-    expect(list.mixed_canastas.get()).toBe(expected);
+    expect(list.mixed_canastas.compute()).toBe(expected);
   });
 });
 
@@ -58,7 +58,7 @@ it('has a natural canastas field', () => {
   expect(list.natural_canastas.maximum).toBe(Number.MAX_SAFE_INTEGER);
   [[0, 0], [1, 500], [4, 4 * 500], [50, 50 * 500]].forEach(([value, expected]) => {
     list.natural_canastas.set(value);
-    expect(list.natural_canastas.get()).toBe(expected);
+    expect(list.natural_canastas.compute()).toBe(expected);
   });
 });
 
@@ -70,7 +70,7 @@ it('has a go out field', () => {
   expect(list.go_out.maximum).toBe(1);
   [[0, 0], [1, 100]].forEach(([value, expected]) => {
     list.go_out.set(value);
-    expect(list.go_out.get()).toBe(expected);
+    expect(list.go_out.compute()).toBe(expected);
   });
 });
 
@@ -82,7 +82,7 @@ it('has a score field', () => {
   expect(list.score.maximum).toBe(Number.MAX_SAFE_INTEGER);
   [1, 10, 33, -33, -43, 1000, 0].forEach(value => {
     list.score.set(value);
-    expect(list.score.get()).toBe(value);
+    expect(list.score.compute()).toBe(value);
   });
 });
 

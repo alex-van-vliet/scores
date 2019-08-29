@@ -27,7 +27,11 @@ class Stat {
       this.value = value;
   }
 
-  get() {
+  get(value) {
+    return this.value;
+  }
+
+  compute() {
     return this.score_function(this.value);
   }
 }

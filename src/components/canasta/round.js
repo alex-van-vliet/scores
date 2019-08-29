@@ -15,11 +15,10 @@ class Round {
     }
   }
   check () {
-    let out_teams = this.teams.filter(team => team.go_out.get() === 100);
+    let out_teams = this.teams.filter(team => team.go_out.get() === 1);
     if (out_teams.length === 0) {
       throw new Error('No team went out.');
-    }
-    if (out_teams.length > 1) {
+    } else if (out_teams.length > 1) {
       throw new Error('More than one team went out.');
     }
   }

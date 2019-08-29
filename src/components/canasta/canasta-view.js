@@ -24,7 +24,7 @@ function CanastaView({teams, scores, rounds, action, finish_round, reversed, tog
     <Header titles={teams} values={scores}/>
     {rows.map(([title, fn], i) =>
         <Row title={title}
-             values={[last_round.teams[0][fn].get(), last_round.teams[1][fn].get()]}
+             values={[last_round.teams[0][fn].compute(), last_round.teams[1][fn].compute()]}
              key={i}
              action={(team) => action(team, fn)}
              danger={reversed} />)}
@@ -42,7 +42,7 @@ function CanastaView({teams, scores, rounds, action, finish_round, reversed, tog
     </div>
     {rounds.map((round, i) =>
         <Footer title={'- ' + (i + 1) + ' -'}
-                values={[round.teams[0].get(), round.teams[1].get()]}
+                values={[round.teams[0].compute(), round.teams[1].compute()]}
                 key={i} />).reverse()}
   </div>;
 }
