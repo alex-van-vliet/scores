@@ -16,7 +16,10 @@ class Round {
   }
   check () {
     if (!this.teams.some(team => team.go_out.get() === 100)) {
-      throw new Error("No team went out.");
+      throw new Error('No team went out.');
+    }
+    if (this.teams.filter(team => team.go_out.get() === 100).length > 1) {
+      throw new Error('More than one team went out.');
     }
   }
 }

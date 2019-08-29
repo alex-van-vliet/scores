@@ -12,7 +12,16 @@ it('throws an error when no one went out', () => {
   const round = new Round();
   expect(() => {
     round.check();
-  }).toThrowError(new Error("No team went out."));
+  }).toThrowError(new Error('No team went out.'));
+});
+
+it('throws an error if two teams went out', () => {
+  const round = new Round();
+  round.teams[0].go_out.set(1);
+  round.teams[1].go_out.set(1);
+  expect(() => {
+    round.check();
+  }).toThrowError(new Error('More than one team went out.'));
 });
 
 it('does not throw an error in a correct game', () => {
