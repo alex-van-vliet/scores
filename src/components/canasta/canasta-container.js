@@ -38,6 +38,20 @@ function CanastaContainer({teams}) {
   };
 
   const add_round = () => {
+    if (rounds.length > 0) {
+      try {
+        rounds[rounds.length - 1].check();
+      } catch (e) {
+        swal.fire({
+          title: 'Error!',
+          text: e.message,
+          type: 'error',
+          confirmButtonText: 'Cool',
+          target: '.canasta'
+        });
+        return;
+      }
+    }
     const new_rounds = rounds.map((round) => new Round(round));
     new_rounds.push(new Round());
     setRounds(new_rounds);
