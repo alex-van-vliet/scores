@@ -14,6 +14,11 @@ class Round {
       ];
     }
   }
+  check () {
+    if (!this.teams.some(team => team.go_out.get() === 100)) {
+      throw new Error("No team went out.");
+    }
+  }
 }
 
 export default Round;
