@@ -54,7 +54,7 @@
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
-    "serialize-javascript": "^1.8.0",
+    "serialize-javascript": "^2.1.1",
     "style-loader": "0.23.1",
     "sweetalert2": "^8.15.2",
     "tailwindcss": "^1.0.6",
